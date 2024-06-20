@@ -33,6 +33,13 @@
 
 namespace CTML
 {
+    /** Allow sending the string value to ostreams to allow `std::cout << node;`
+     *  instead of having to do this: `std::cout << node.ToString();`
+     */
+    ostream& operator<<(std::ostream& os, Node& node) {
+		os << node.ToString();
+		return os;
+	}
     /**
      * Searches the original string and replaces all occurances of the specified
      * string.
